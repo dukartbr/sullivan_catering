@@ -94,10 +94,11 @@ function PaymentOption() {
       backgroundColor="white"
       boxShadow="xl"
       height="580px"
-      px={3}
+      p={3}
       fontWeight="bold"
       textAlign="center"
       borderRadius={16}
+      fontFamily="Holtwood One SC"
     >
       <Text>Payment Options</Text>
     </Box>
