@@ -45,8 +45,8 @@ function PizzaMenu() {
         <Text fontFamily="Holtwood One SC" fontSize="3xl">
           Pizza Menu
         </Text>
-        <Flex width="100%">
-          <Box height="580px" overflow="scroll" width="70%">
+        <Flex width="100%" px={8}>
+          <Box height="580px" overflow="scroll" width="70%" px={5}>
             {pizzaMenuOptions.map((pizza) => (
               <PizzaMenuItem {...pizza} />
             ))}
@@ -75,6 +75,8 @@ function PizzaMenuItem({
       my={5}
       borderRadius={16}
       width="100%"
+      px={6}
+      py={2}
     >
       <Image height="200px" src={imageURL} />
       <Box>
