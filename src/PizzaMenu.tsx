@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Image, Spacer, Text } from "@chakra-ui/react";
 
 interface PizzaMenuOption {
   title: string;
@@ -104,17 +104,81 @@ function PizzaMenuItem({
 
 function PaymentOption() {
   return (
-    <Box
+    <Flex
       backgroundColor="white"
       boxShadow="xl"
       height="580px"
       p={3}
       fontWeight="bold"
-      textAlign="center"
       borderRadius={16}
-      fontFamily="Holtwood One SC"
+      direction="column"
     >
-      <Text>Payment Options</Text>
-    </Box>
+      <Text textAlign="center" fontFamily="Holtwood One SC">
+        Payment Options
+      </Text>
+      <Box mt={4} px={2}>
+        {paymentOptions.map(({ title, options }) => (
+          <Box my={3}>
+            <Text color="green.500">{title.toUpperCase()}</Text>
+            <Box>
+              {options.map(({ qty, price }) => (
+                <Text my={1}>
+                  {qty.toString()} Pizzas........${price}
+                </Text>
+              ))}
+            </Box>
+          </Box>
+        ))}
+      </Box>
+      <Spacer />
+      <Box
+        bgColor="green.300"
+        color="white"
+        fontWeight="bold"
+        textTransform="uppercase"
+        borderRadius={8}
+        textAlign="center"
+        p={4}
+      >
+        <Text>Free Pizza for the Bride & Groom!</Text>
+      </Box>
+    </Flex>
   );
 }
+
+const paymentOptions = [
+  {
+    title: "cash",
+    options: [
+      {
+        qty: 10,
+        price: 225,
+      },
+      {
+        qty: 15,
+        price: 325,
+      },
+      {
+        qty: 20,
+        price: 400,
+      },
+    ],
+  },
+  {
+    title: "card",
+    options: [
+      {
+        qty: 10,
+        price: 250,
+      },
+      {
+        qty: 15,
+        price: 350,
+      },
+      {
+        qty: 20,
+        price: 450,
+      },
+    ],
+  },
+];

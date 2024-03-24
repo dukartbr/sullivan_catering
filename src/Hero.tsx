@@ -4,7 +4,8 @@ function Hero() {
   return (
     <Box
       backgroundImage="https://franchise.yourpie.com/wp-content/uploads/2021/04/bbq-chicken-pizza-800x400.jpg"
-      height="400px"
+      height="300px"
+      backgroundAttachment="fixed"
       backgroundSize="cover"
       backgroundRepeat="no-repeat"
       width="100%"
@@ -12,7 +13,7 @@ function Hero() {
       <Box
         backgroundColor="rgba(217, 4, 4, 0.5);"
         width="50%"
-        height="400px"
+        height="300px"
         p={4}
         position="relative"
         textAlign="center"
