@@ -40,13 +40,27 @@ const pizzaMenuOptions: PizzaMenuOption[] = [
 
 function PizzaMenu() {
   return (
-    <Box backgroundColor="#F2F2F2" height="600px">
+    <Box backgroundColor="#F2F2F2" minHeight="600px" py={2}>
       <Box width="70%" mx="auto">
-        <Text fontFamily="Holtwood One SC" fontSize="3xl">
+        <Text fontFamily="Holtwood One SC" fontSize="3xl" py={4}>
           Pizza Menu
         </Text>
         <Flex width="100%" px={8}>
-          <Box height="580px" overflow="scroll" width="70%" px={5}>
+          <Box
+            height="580px"
+            overflowY="scroll"
+            width="70%"
+            px={5}
+            css={{
+              WebkitOverflowScrolling: "touch", // Enable smooth scrolling on iOS devices
+              "&::-webkit-scrollbar": {
+                width: "0em", // Adjust the width of the scrollbar
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "transparent", // Set the color of the scrollbar thumb
+              },
+            }}
+          >
             {pizzaMenuOptions.map((pizza) => (
               <PizzaMenuItem {...pizza} />
             ))}

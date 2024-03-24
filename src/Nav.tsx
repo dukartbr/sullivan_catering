@@ -2,7 +2,7 @@ import { Box, Container, Flex, Spacer, Text } from "@chakra-ui/react";
 
 function Nav() {
   return (
-    <Box bgColor="#D90404" color="white" p={2} fontFamily="Holtwood One SC">
+    <Box bgColor="#D90404" color="white" py={3} fontFamily="Holtwood One SC">
       <Container>
         <Flex>
           <Text>Sullivan Catering</Text>
