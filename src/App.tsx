@@ -1,7 +1,8 @@
-import { Box, Image } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import Nav from "./Nav";
 import Hero from "./Hero";
 import PizzaMenu from "./PizzaMenu";
+import IceCreamMenu from "./IceCreamMenu";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         backgroundRepeat="no-repeat"
         width="100%"
       />
+      <IceCreamMenu />
     </Box>
   );
 }
