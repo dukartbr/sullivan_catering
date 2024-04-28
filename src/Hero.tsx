@@ -1,6 +1,6 @@
 import { Box, Text } from "@chakra-ui/react";
 
-function Hero() {
+function Hero({ isMobile }: { isMobile: boolean }) {
   return (
     <Box
       backgroundImage="https://franchise.yourpie.com/wp-content/uploads/2021/04/bbq-chicken-pizza-800x400.jpg"
@@ -12,8 +12,7 @@ function Hero() {
     >
       <Box
         backgroundColor="rgba(217, 4, 4, 0.5);"
-        width="50%"
-        // height="300px"
+        width={isMobile ? "100%" : "50%"}
         py={14}
         px={14}
         position="relative"

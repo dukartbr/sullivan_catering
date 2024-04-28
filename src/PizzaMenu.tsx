@@ -59,10 +59,10 @@ const pizzaMenuOptions: PizzaMenuOption[] = [
   },
 ];
 
-function PizzaMenu() {
+function PizzaMenu({ isMobile }: { isMobile: boolean }) {
   return (
-    <Box backgroundColor="#F2F2F2" minHeight="600px" py={8}>
-      <Box width="70%" mx="auto">
+    <Box backgroundColor="#F2F2F2" minHeight="600px" py={8} px={2}>
+      <Box width={isMobile ? "100%" : "70%"} mx="auto">
         <Text fontFamily="Holtwood One SC" fontSize="3xl" py={2}>
           Pizza Menu
         </Text>
@@ -72,11 +72,11 @@ function PizzaMenu() {
             Pizza Ranch pizza
           </a>
         </Text>
-        <Flex width="100%" px={8}>
+        <Flex width="100%" px={8} direction={isMobile ? "column" : "row"}>
           <Box
-            height="580px"
-            overflowY="scroll"
-            width="70%"
+            height={isMobile ? "auto" : "580px"}
+            overflowY={isMobile ? "unset" : "scroll"}
+            width={isMobile ? "100%" : "70%"}
             px={5}
             css={{
               WebkitOverflowScrolling: "touch", // Enable smooth scrolling on iOS devices
@@ -89,10 +89,10 @@ function PizzaMenu() {
             }}
           >
             {pizzaMenuOptions.map((pizza) => (
-              <PizzaMenuItem {...pizza} />
+              <PizzaMenuItem isMobile={isMobile} {...pizza} />
             ))}
           </Box>
-          <Box width="30%" px={3}>
+          <Box width={isMobile ? "100%" : "30%"} px={3}>
             <PaymentOption />
           </Box>
         </Flex>
@@ -103,12 +103,17 @@ function PizzaMenu() {
 
 export default PizzaMenu;
 
+interface PizzaMenuItemInterface extends PizzaMenuOption {
+  isMobile: boolean;
+}
+
 function PizzaMenuItem({
   title,
   subtitle,
   imageURL,
   ingredients,
-}: PizzaMenuOption) {
+  isMobile,
+}: PizzaMenuItemInterface) {
   return (
     <Flex
       bgColor="#ffffff"
@@ -118,8 +123,14 @@ function PizzaMenuItem({
       width="100%"
       px={6}
       py={2}
+      direction={isMobile ? "column" : "row"}
     >
-      <Image height="200px" src={imageURL} />
+      <Image
+        maxHeight={isMobile ? "unset" : "200px"}
+        height="auto"
+        width="auto"
+        src={imageURL}
+      />
       <Box px={2} py={4}>
         <Text fontFamily="Holtwood One SC">{title}</Text>
         {subtitle && (

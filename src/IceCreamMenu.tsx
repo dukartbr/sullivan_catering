@@ -64,20 +64,20 @@ const iceCreamMenuOptions: IceCreamMenuOption[] = [
   },
 ];
 
-function IceCreamMenu() {
+function IceCreamMenu({ isMobile }: { isMobile: boolean }) {
   return (
-    <Box backgroundColor="#F2F2F2" minHeight="600px" py={2}>
-      <Box width="70%" mx="auto">
+    <Box backgroundColor="#F2F2F2" minHeight="600px" py={8} px={2}>
+      <Box width={isMobile ? "100%" : "70%"} mx="auto">
         <Text fontFamily="Holtwood One SC" fontSize="3xl" py={4}>
           Ice Cream Menu
         </Text>
-        <Flex width="100%" px={8}>
+        <Flex width="100%" px={8} direction={isMobile ? "column" : "row"}>
           <Grid
-            height="580px"
-            overflowY="scroll"
-            width="70%"
+            height={isMobile ? "auto" : "580px"}
+            overflowY={isMobile ? "unset" : "scroll"}
+            width={isMobile ? "100%" : "70%"}
             gap={2}
-            templateColumns="repeat(3, 1fr)"
+            templateColumns={isMobile ? "repeat(1, 1fr)" : "repeat(3, 1fr)"}
             px={5}
             css={{
               WebkitOverflowScrolling: "touch", // Enable smooth scrolling on iOS devices
@@ -93,7 +93,7 @@ function IceCreamMenu() {
               <IceCreamMenuItem {...iceCream} />
             ))}
           </Grid>
-          <Box width="30%" px={3}>
+          <Box width={isMobile ? "100%" : "30%"} px={3}>
             <PaymentOption />
           </Box>
         </Flex>
